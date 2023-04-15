@@ -15,3 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/','TodosController@index')->name('index');
+Route::get('/create-page', 'TodosController@createPage');
+Route::post('/create', 'TodosController@create');

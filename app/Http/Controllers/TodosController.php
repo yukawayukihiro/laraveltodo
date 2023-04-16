@@ -47,4 +47,17 @@ class TodosController extends Controller
         ]);
         return redirect('/');
      }
+
+     // タスク削除画面を表示
+     public function deletePage ($id) {
+        $todo = Todos::find($id);
+        return view('todo_delete',compact('todo',$todo));
+     }
+
+     // タスクを削除
+     public function delete (Request $request, $id) {
+        $todo =Todos::find($id);
+        $todo->delete();
+        return redirect('/');
+     }
 }
